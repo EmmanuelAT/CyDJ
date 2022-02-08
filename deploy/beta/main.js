@@ -190,7 +190,7 @@ const MiniLogo_URL = 'https://cdn.7tv.app/emote/614e8c0b20eaf897465a4c9d/1x';
 
 const ChannelName_Caption = 'CyDJ';
 
-const Version_Now = 'CyDJPre2.5.22.1';
+const Version_Now = 'CyDJPre2.7.21.1';
 
 const HeaderDropMenu_Title = 'Information';
 
@@ -675,6 +675,10 @@ const USER_BADGES = {
   ],
   'MasterA1G': [
     Badge.SUB_24_MONTHS_T1,
+  ],
+
+  'xqcPeepo': [
+    Badge.SUB_0_MONTHS_T1,
   ],
 };
 
@@ -5242,7 +5246,7 @@ function resizeStuff() {
 
   if (UI_DisplayModeSel) {
     m = modesel.val();
-
+    console.log("channel mode is : ",m);
     // patches for various display modes
     if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
@@ -5883,6 +5887,16 @@ socket.on('mediaUpdate', fixRawVideoControls);
 
 document.body.addEventListener('load', resizeStuff, true);
 socket.on('changeMedia', resizeStuff);
+
+var  resizeStuffLoop = setInterval(() => {//xqcPeepo/EmmanuelAT was here
+  console.log("resizing...2");
+  resizeStuff();//this should be fine right Clueless
+  if (UI_DisplayModeSel)
+  {
+    setMode(modesel.val());
+  }
+}, 1500)();//every 1.5 seconds just to be safe?? : xqcPeepo here
+//^ side note you can always cancel this interval by using clearInterval(resizeStuffLoop);
 
 // Xaekai was here (john too)
 $.getScript('https://resources.pink.horse/scripts/mjoc.requests.js');
