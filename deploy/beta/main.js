@@ -5412,6 +5412,14 @@ let lastMessageOdd = false;
 let CHAT_INIT = false;
 if (!CHAT_INIT) {
   CHAT_INIT = true;
+  // to get fix previous chat messages that didn't have the emote parsed I will grab them now : xqcPeepo
+  const messagebufferlocal = document.getElementById('messagebuffer');
+  for (let i = 0; i < messagebufferlocal.childElementCount; i++) {
+    const element = messagebufferlocal[i];
+    twemoji.parse(element);
+  }
+
+
   socket.on('chatMsg', (obj) => {
     const mb = document.getElementById('messagebuffer');
     if (mb && mb.lastChild &&
@@ -5420,8 +5428,9 @@ if (!CHAT_INIT) {
       mb.lastChild.classList.add(
           lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
       lastMessageOdd = !lastMessageOdd;
+      twemoji.parse(mb.lastChild);// xqcPeepo was here
     }
-    twemoji.parse(mb);//Clueless surely this won't kill everything in r/xqcPeepo
+    
     
     setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
