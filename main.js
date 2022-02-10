@@ -5381,7 +5381,7 @@ $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",()=>{
   for (let child = messagebufferlocal.firstChild; child !== null ; child=child.nextSibling)
   {
     let childMessage = child.querySelector("span:not([class])");
-    twemoji.parse(childMessage);
+    //twemoji.parse(childMessage);
   }
 });
 /*
@@ -5436,7 +5436,7 @@ if (!CHAT_INIT) {
         console.log("should've parsed emoji!");
         let childMessage = mb.lastElementChild.querySelector("span:not([class])");
         if (childMessage !== null) {
-          twemoji.parse(childMessage);// xqcPeepo was here
+          //twemoji.parse(childMessage);// xqcPeepo was here
         }
       }
     }
