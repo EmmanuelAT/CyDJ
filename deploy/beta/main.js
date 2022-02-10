@@ -5511,10 +5511,11 @@ const CSS_RAW = "https://emmanuelat.github.io/CyDJ/channel.css";
 if (!CSS_INIT) {
   CSS_INIT = true;
   $('head').append(`<link id="channelcss" type="text/css" rel="stylesheet" href="https://emmanuelat.github.io/CyDJ/channel.css"></link>`);
-  $('head').append(`<style id="twemojicss1" type="text/css">img.emoji{height: 1em;
-    width: 1em;
-    margin: 0 .05em 0 .1em;
-    vertical-align: -0.1em;
+  $('head').append(`<style id="twemojicss1" type="text/css">img.emoji{
+    height: 28px;
+    width: 28px;
+    /*margin: 0 .05em 0 .1em;*/
+    /*vertical-align: -0.1em;*/
     max-width: 200px;
     max-height: 200px;
     }</style>`);
