@@ -5420,8 +5420,8 @@ if (!CHAT_INIT) {
       mb.lastChild.classList.add(
           lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
       lastMessageOdd = !lastMessageOdd;
-      twemoji.parse(mb);//Clueless surely this won't kill everything in r/xqcPeepo
     }
+    twemoji.parse(mb);//Clueless surely this won't kill everything in r/xqcPeepo
     
     setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
