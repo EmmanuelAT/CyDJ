@@ -5507,10 +5507,10 @@ if (!CHAT_INIT) {
 }
 
 let CSS_INIT = false;
-const CSS_RAW = '';
+const CSS_RAW = "https://emmanuelat.github.io/CyDJ/channel.css";
 if (!CSS_INIT) {
   CSS_INIT = true;
-  $('head').append(`<style id="chancss2" type="text/css">${CSS_RAW}</style>`);
+  $('head').append(`<link id="channelcss" type="text/css" rel="stylesheet" href="https://emmanuelat.github.io/CyDJ/channel.css"></link>`);
   $('head').append(`<style id="twemojicss1" type="text/css">img.emoji{height: 1em;
     width: 1em;
     margin: 0 .05em 0 .1em;
