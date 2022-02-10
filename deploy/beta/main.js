@@ -5371,16 +5371,16 @@ if (UI_ExternalScript && ExternalScript_URL != '') {
 if (UI_Snow && Snow_URL != '') {
   $.getScript(Snow_URL);
 }
-let twemojiEnabled = false
+twemojiEnabled = false
 // xqcPeepo here, loading the twemojis so I don't have to manually add the emojis into r/cydj
 $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",()=>{
   console.log("!!Loaded twemoji.js!!");
   twemojiEnabled = true;
   // to get fix previous chat messages that didn't have the emote parsed I will grab them now : xqcPeepo
   const messagebufferlocal = document.getElementById('messagebuffer');
-  for (let i = 0; i < messagebufferlocal.childElementCount; i++) {
-    const element = messagebufferlocal[i];
-    twemoji.parse(element);
+  for (child = messagebufferlocal.firstElementChild; child !== null ; child=child.nextSibling)
+  {
+    twemoji.parse(child);
   }
 });
 /*
