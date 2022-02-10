@@ -5380,7 +5380,7 @@ $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",()=>{
   const messagebufferlocal = document.getElementById('messagebuffer');
   for (child = messagebufferlocal.firstElementChild; child !== null ; child=child.nextSibling)
   {
-    twemoji.parse(child);
+    twemoji.parse(child.getElementsByClassName("")[0]);
   }
 });
 /*
@@ -5433,7 +5433,7 @@ if (!CHAT_INIT) {
       lastMessageOdd = !lastMessageOdd;
       if (twemojiEnabled)
       {
-        twemoji.parse(mb.lastChild);// xqcPeepo was here
+        twemoji.parse(mb.lastElementChild.getElementsByClassName("")[0]);// xqcPeepo was here
       }
     }
     
