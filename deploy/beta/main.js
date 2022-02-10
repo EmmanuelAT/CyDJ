@@ -5371,7 +5371,7 @@ if (UI_ExternalScript && ExternalScript_URL != '') {
 if (UI_Snow && Snow_URL != '') {
   $.getScript(Snow_URL);
 }
-const twemojiEnabled = false
+let twemojiEnabled = false
 // xqcPeepo here, loading the twemojis so I don't have to manually add the emojis into r/cydj
 $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",()=>{
   console.log("!!Loaded twemoji.js!!");
