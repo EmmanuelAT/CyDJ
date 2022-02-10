@@ -5298,7 +5298,7 @@ function resizeStuff() {
 
   if (UI_DisplayModeSel) {
     m = modesel.val();
-    console.log('channel mode is : ', m);
+    //console.log('channel mode is : ', m);
     // patches for various display modes
     if (m === 'chMode' || m === 'rMode') {
       if (WEBKIT) {
@@ -5378,9 +5378,11 @@ $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",()=>{
   twemojiEnabled = true;
   // to get fix previous chat messages that didn't have the emote parsed I will grab them now : xqcPeepo
   const messagebufferlocal = document.getElementById('messagebuffer');
-  for (child = messagebufferlocal.firstElementChild; child !== null ; child=child.nextSibling)
+  for (let child = messagebufferlocal.firstElementChild; child !== null ; child=child.nextElementSibling)
   {
-    twemoji.parse(child.getElementsByClassName("")[0]);
+    let childMessage = child.getElementsByClassName("")[0];
+    console.log(childMessage.innerHTML);
+    twemoji.parse(childMessage);
   }
 });
 /*
@@ -5433,7 +5435,9 @@ if (!CHAT_INIT) {
       lastMessageOdd = !lastMessageOdd;
       if (twemojiEnabled)
       {
-        twemoji.parse(mb.lastElementChild.getElementsByClassName("")[0]);// xqcPeepo was here
+        console.log("should've parsed emoji!");
+        let childMessage = mb.lastElementChild.getElementsByClassName("")[0];
+        twemoji.parse(childMessage);// xqcPeepo was here
       }
     }
     
