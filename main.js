@@ -5378,10 +5378,12 @@ $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",()=>{
   twemojiEnabled = true;
   // to get fix previous chat messages that didn't have the emote parsed I will grab them now : xqcPeepo
   const messagebufferlocal = document.getElementById('messagebuffer');
-  for (let child = messagebufferlocal.firstChild; child !== null ; child=child.nextSibling)
+  for (let child = messagebufferlocal.firstElementChild; child !== null ; child=child.nextElementSibling)
   {
     let childMessage = child.querySelector("span:not([class])");
-    //twemoji.parse(childMessage);
+    if (childMessage !== null) {
+      //twemoji.parse(childMessage);// xqcPeepo was here
+    }
   }
 });
 /*
