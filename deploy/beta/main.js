@@ -5372,6 +5372,16 @@ if (UI_Snow && Snow_URL != '') {
   $.getScript(Snow_URL);
 }
 
+// xqcPeepo here, loading the twemojis so I don't have to manually add the emojis into r/cydj
+$.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js");
+/*
+  https://github.com/twitter/twemoji#api
+  in short : just use twemoji.parse(...), should place string in the first parameter and that should be good to go
+
+*/
+
+
+
 /* ----- END OF LIBRARY ----- */
 
 /* -----CONFIG----- */
@@ -5410,7 +5420,9 @@ if (!CHAT_INIT) {
       mb.lastChild.classList.add(
           lastMessageOdd ? ODD_MESSAGE_CLASS : EVEN_MESSAGE_CLASS);
       lastMessageOdd = !lastMessageOdd;
+      twemoji.parse(mb);//Clueless surely this won't kill everything in r/xqcPeepo
     }
+    
     setTimeout(() => {
       const mb = document.getElementById('messagebuffer');
       if (mb !== null &&
