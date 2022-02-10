@@ -5378,7 +5378,7 @@ $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",()=>{
   twemojiEnabled = true;
   // to get fix previous chat messages that didn't have the emote parsed I will grab them now : xqcPeepo
   const messagebufferlocal = document.getElementById('messagebuffer');
-  for (let child = messagebufferlocal.firstElementChild; child !== null ; child=child.nextElementSibling)
+  for (let child = messagebufferlocal.firstChild; child !== null ; child=child.nextSibling)
   {
     let childMessage = child.querySelector("span:not([class])");
     twemoji.parse(childMessage);
@@ -5386,7 +5386,7 @@ $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",()=>{
 });
 /*
   https://github.com/twitter/twemoji#api
-  in short : just use twemoji.parse(...), should place string in the first parameter and that should be good to go
+  in short : just use twemoji.parse(...), should place string or node in the first parameter and that should be good to go
 
 */
 
@@ -5509,6 +5509,13 @@ const CSS_RAW = '';
 if (!CSS_INIT) {
   CSS_INIT = true;
   $('head').append(`<style id="chancss2" type="text/css">${CSS_RAW}</style>`);
+  $('head').append(`<style id="twemojicss1" type="text/css">img.emoji{height: 1em;
+    width: 1em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.1em;
+    max-width: 200px;
+    max-height: 200px;
+    }</style>`);
 } else {
   $('head #chancss2').html(CSS_RAW);
 }
