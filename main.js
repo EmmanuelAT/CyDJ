@@ -5383,17 +5383,19 @@ if (UI_Snow && Snow_URL != '') {
 }
 twemojiEnabled = false
 // xqcPeepo here, loading the twemojis so I don't have to manually add the emojis into r/cydj
-$.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",()=>{
+$.getJSON("");
+$.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",(successCallback)=>{
   console.log("!!Loaded twemoji.js!!");
   twemojiEnabled = true;
   // to get fix previous chat messages that didn't have the emote parsed I will grab them now : xqcPeepo
   const messagebufferlocal = document.getElementById('messagebuffer');
   for (let child = messagebufferlocal.firstElementChild; child !== null ; child=child.nextElementSibling)
   {
-    let childMessage = child.querySelector("span:not([class])");
-    if (childMessage !== null) {
-      twemoji.parse(childMessage);// xqcPeepo was here
-    }
+    child.querySelectorAll("span:not([class])").forEach((childElement)=>{//this is assuming we don't have any other classes for chat messages, which might change in the future but I'll update the code to reflect that as well
+      if (childElement !== null) {
+        twemoji.parse(childElement);// xqcPeepo was here
+      }
+    });
   }
 });
 /*
@@ -5446,10 +5448,10 @@ if (!CHAT_INIT) {
       lastMessageOdd = !lastMessageOdd;
       if (twemojiEnabled) {
         console.log("should've parsed emoji!");
-        let childMessage = mb.lastElementChild.querySelector("span:not([class])");
-        if (childMessage !== null) {
-          twemoji.parse(childMessage);// xqcPeepo was here
-        }
+        twemoji.parse(obj.msg)// trying to see if obj.msg contains the element added : xqcPeepo 
+        //mb.lastElementChild.querySelectorAll("span:not([class])").forEach((childElement)=>{
+        //    twemoji.parse(obj.msg);
+        //});
       }
     }
     
