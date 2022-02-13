@@ -643,17 +643,9 @@ const USER_BADGES = {
   'MasterA1G': [
     Badge.SUB_24_MONTHS_T1,
   ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-  'xqcPeepo': [
-    Badge.SUB_0_MONTHS_T1,
-=======
-=======
   'xqcPeepo': [
     Badge.SUB_0_MONTHS_T1,
   ],
->>>>>>> upstream/master
   'the7entity': [
     Badge.SUB_12_MONTHS_T1,
   ],
@@ -677,10 +669,6 @@ const USER_BADGES = {
   ],
   'SHEEEEEEEEEEEEEEEESH': [
     'https://cdn.discordapp.com/attachments/915650094697693184/937061024748675112/ezgif.com-gif-maker_3.gif',
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> upstream/master
   ],
 };
 
@@ -1252,7 +1240,6 @@ let FASTESTBGCHANGE = 1;
 
 // list of users with muted chat sounds by user
 const MUTEDVOICES = [];
-<<<<<<< HEAD
 // array with user messages statistics
 const CHATSTAT = {
   n: 0,
@@ -1299,9 +1286,6 @@ if (clientDataString !== null){
 }
 
 //#localStorage implementation, it will be shit at first but I'll rewrite it to get it to work better eventually LULW : xqcPeepo
-
-=======
->>>>>>> upstream/master
 
 // array of links added from channel database by user
 const ADDEDLINKS = [];
