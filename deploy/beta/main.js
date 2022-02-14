@@ -5381,10 +5381,40 @@ if (UI_ExternalScript && ExternalScript_URL != '') {
 if (UI_Snow && Snow_URL != '') {
   $.getScript(Snow_URL);
 }
+
+//Hey hey hey xqcPeepo here, I'm adding this emote format here just incase we want to inject emotes ourselves or add them programmatically
+
+function PushEmoteToWindow(emoteName, emoteImage){/*you do not need to enter customSource or customRegex */
+  socket.emit("updateEmote", {
+    name: emoteName,
+    image: emoteImage,
+  })
+}
+function getTwEmojiImageFromEmoticode(textEmoticode)
+{
+  let tempDiv = document.createElement('div');
+  let twEmojiImageURL = null;
+  tempDiv.textContent = textEmoticode;
+  twemoji.parse(tempDiv,{callback: function() {
+    
+    twEmojiImageURL = tempDiv.querySelector('img');
+    twEmojiImageURL.parentNode === tempDiv;
+    setTimeout(tempDiv.remove(),1000);
+    return twEmojiImageURL.src;
+  }
+  })
+  return twEmojiImageURL;
+}
+
 twemojiEnabled = false
 // xqcPeepo here, loading the twemojis so I don't have to manually add the emojis into r/cydj
 tweEmojiList = $.getJSON("https://unpkg.com/emoji.json/emoji.json",(successCallback)=>{
   console.log(tweEmojiList);
+  tweEmojiList.responseJSON.forEach((index) => { /* the first index returns something like, {codes: "1F600", char: "😀", name: "grinning face", category: "Smileys & Emotion (face-smiling)", group: "Smileys & Emotion", subgroup: "face-smiling"} */
+    let localemoteName  = ":"+index.name.replace(" ","-")+":";
+    let localemoteImage = getTwEmojiImageFromEmoticode(index.char);
+    PushEmoteToWindow(localemoteName,localemoteImage);
+  })
 });
 
 $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",(successCallback)=>{
