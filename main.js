@@ -5384,7 +5384,7 @@ if (UI_Snow && Snow_URL != '') {
 
 //Hey hey hey xqcPeepo here, I'm adding this emote format here just incase we want to inject emotes ourselves or add them programmatically
 
-function PushEmoteToWindow(emoteName, emoteImage){/*you do not need to enter customSource or customRegex */
+function PushEmoteToWindow(emoteName, emoteImage){
   socket.emit("updateEmote", {
     name: emoteName,
     image: emoteImage,
@@ -5413,6 +5413,7 @@ tweEmojiList = $.getJSON("https://unpkg.com/emoji.json/emoji.json",(successCallb
   tweEmojiList.responseJSON.forEach((index) => { /* the first index returns something like, {codes: "1F600", char: "😀", name: "grinning face", category: "Smileys & Emotion (face-smiling)", group: "Smileys & Emotion", subgroup: "face-smiling"} */
     let localemoteName  = ":"+index.name.replace(" ","-")+":";
     let localemoteImage = getTwEmojiImageFromEmoticode(index.char);
+    console("trying to push emote into emote list : ",localemoteName," and src", localemoteImage);
     PushEmoteToWindow(localemoteName,localemoteImage);
   })
 });
