@@ -5394,10 +5394,11 @@ function getTwEmojiImageFromEmoticode(textEmoticode)
 {
   let tempDiv = document.createElement('div');
   let twEmojiImageURL = null;
-  tempDiv.textContent = textEmoticode;
+  tempDiv.textContent = `${textEmoticode}`;
+  document.body.appendChild(tempDiv);
   twemoji.parse(tempDiv,{callback: function() {
-    
     twEmojiImageURL = tempDiv.querySelector('img');
+    twEmojiImageURL.parentNode === tempDiv; // idk why exactly this is needed but its there in the wiki 🤷‍♀️ : xqcPeepo
     setTimeout(tempDiv.remove(),1000);
     return twEmojiImageURL.src;
   }
