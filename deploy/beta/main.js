@@ -5406,18 +5406,17 @@ function getTwEmojiImageFromEmoticode(textEmoticode)
 }
 
 twemojiEnabled = false
-// xqcPeepo here, loading the twemojis so I don't have to manually add the emojis into r/cydj
-tweEmojiList = $.getJSON("https://unpkg.com/emoji.json/emoji.json",(successCallback)=>{
-  console.log(tweEmojiList);
-  tweEmojiList.responseJSON.forEach((index) => { /* the first index returns something like, {codes: "1F600", char: "😀", name: "grinning face", category: "Smileys & Emotion (face-smiling)", group: "Smileys & Emotion", subgroup: "face-smiling"} */
-    let localemoteName  = ":"+index.name.replace(" ","-")+":";
-    let localemoteImage = getTwEmojiImageFromEmoticode(index.char);
-    console("trying to push emote into emote list : ",localemoteName," and src", localemoteImage);
-    PushEmoteToWindow(localemoteName,localemoteImage);
-  })
-});
-
 $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",(successCallback)=>{
+  // xqcPeepo here, loading the twemojis so I don't have to manually add the emojis into r/cydj
+  tweEmojiList = $.getJSON("https://unpkg.com/emoji.json/emoji.json",(successCallback)=>{
+    console.log(tweEmojiList);
+    tweEmojiList.responseJSON.forEach((index) => { /* the first index returns something like, {codes: "1F600", char: "😀", name: "grinning face", category: "Smileys & Emotion (face-smiling)", group: "Smileys & Emotion", subgroup: "face-smiling"} */
+      let localemoteName  = ":"+index.name.replace(" ","-")+":";
+      let localemoteImage = getTwEmojiImageFromEmoticode(index.char);
+      console("trying to push emote into emote list : ",localemoteName," and src", localemoteImage);
+      PushEmoteToWindow(localemoteName,localemoteImage);
+    })
+  });
   console.log("!!Loaded twemoji.js!!");
   twemojiEnabled = true;
   // to get fix previous chat messages that didn't have the emote parsed I will grab them now : xqcPeepo
