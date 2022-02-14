@@ -5398,7 +5398,6 @@ function getTwEmojiImageFromEmoticode(textEmoticode)
   twemoji.parse(tempDiv,{callback: function() {
     
     twEmojiImageURL = tempDiv.querySelector('img');
-    twEmojiImageURL.parentNode === tempDiv;
     setTimeout(tempDiv.remove(),1000);
     return twEmojiImageURL.src;
   }
