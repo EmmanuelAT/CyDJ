@@ -5385,10 +5385,11 @@ if (UI_Snow && Snow_URL != '') {
 //Hey hey hey xqcPeepo here, I'm adding this emote format here just incase we want to inject emotes ourselves or add them programmatically
 
 function PushEmoteToWindow(emoteName, emoteImage){
-  socket.emit("updateEmote", {
-    name: emoteName,
-    image: emoteImage,
-  })
+  window.Callbacks.updateEmote({
+      name: emoteName,
+      image: emoteImage, 
+    }
+  )
 }
 function getTwEmojiImageFromEmoticode(textEmoticode)
 {
