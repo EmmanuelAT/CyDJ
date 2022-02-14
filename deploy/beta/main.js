@@ -5383,7 +5383,10 @@ if (UI_Snow && Snow_URL != '') {
 }
 twemojiEnabled = false
 // xqcPeepo here, loading the twemojis so I don't have to manually add the emojis into r/cydj
-$.getJSON("");
+tweEmojiList = $.getJSON("https://unpkg.com/emoji.json/emoji.json",(successCallback)=>{
+  console.log(tweEmojiList);
+});
+
 $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",(successCallback)=>{
   console.log("!!Loaded twemoji.js!!");
   twemojiEnabled = true;
@@ -5448,7 +5451,7 @@ if (!CHAT_INIT) {
       lastMessageOdd = !lastMessageOdd;
       if (twemojiEnabled) {
         console.log("should've parsed emoji!");
-        twemoji.parse(obj.msg)// trying to see if obj.msg contains the element added : xqcPeepo 
+        twemoji.parse(obj.msg.meta)// trying to see if obj.msg contains the element added : xqcPeepo 
         //mb.lastElementChild.querySelectorAll("span:not([class])").forEach((childElement)=>{
         //    twemoji.parse(obj.msg);
         //});
