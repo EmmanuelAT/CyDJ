@@ -5412,7 +5412,7 @@ $.getScript("https://twemoji.maxcdn.com/v/latest/twemoji.min.js",(successCallbac
     tweEmojiList.responseJSON.forEach((index) => { /* the first index returns something like, {codes: "1F600", char: "😀", name: "grinning face", category: "Smileys & Emotion (face-smiling)", group: "Smileys & Emotion", subgroup: "face-smiling"} */
       let localemoteName  = ":"+index.name.replace(" ","-")+":";
       let localemoteImage = getTwEmojiImageFromEmoticode(index.char);
-      console("trying to push emote into emote list : ",localemoteName," and src", localemoteImage);
+      console.log("trying to push emote into emote list : ",localemoteName," and src", localemoteImage);
       PushEmoteToWindow(localemoteName,localemoteImage);
     })
   });
